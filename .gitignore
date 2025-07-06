@@ -1,0 +1,31 @@
+# PHP dependencies
+/vendor/
+
+# Uploaded files
+/app/uploads/
+
+# AWS CLI installation files (if temporary and not part of the source)
+awscliv2.zip
+/aws/dist/
+/aws/install/
+
+# Environment-specific configuration
+# If you use .env files for local configuration, keep them out of version control.
+.env
+.env.*
+.env.local
+.env.development
+.env.testing
+
+# IDE and OS generated files
+.idea/             # IntelliJ IDEA specific files
+.vscode/           # VS Code specific files
+*.swp              # Vim swap files
+*.bak              # Backup files
+.DS_Store          # macOS specific files
+Thumbs.db          # Windows specific files
+*.log              # Log files (e.g., application logs)
+*.sqlite           # SQLite database files (if you use them for local development)
+
+# Composer specific files (except composer.json and composer.lock)
+composer.phar
