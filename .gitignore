@@ -2,7 +2,7 @@
 /vendor/
 
 # Uploaded files
-/app/uploads/
+#/app/uploads/
 
 # AWS CLI installation files (if temporary and not part of the source)
 awscliv2.zip
