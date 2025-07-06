@@ -1,4 +1,4 @@
-# Adafi News App (LAMP Stack on AWS ECS)
+# Adafi News App (LAMP Stack on AWS ECS) new
 
 A containerized PHP-based news application deployed on AWS using ECS Fargate and an Application Load Balancer (ALB). The app is connected to an Amazon RDS MySQL database and follows DevOps best practices including Docker, ECR, secure secrets management, and infrastructure deployment via AWS CLI.
 
