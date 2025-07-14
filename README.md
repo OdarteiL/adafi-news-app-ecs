@@ -17,7 +17,7 @@ A containerized PHP-based news application deployed on AWS using ECS Fargate and
 
 
 **Disaster Recovery:**  
-[http://app.adafi-dr.lab](http://app.adafi-dr.lab)
+[http://adafi-dr-alb-1257296421.eu-central-1.elb.amazonaws.com/](http://adafi-dr-alb-1257296421.eu-central-1.elb.amazonaws.com/)
 
 ---
 
