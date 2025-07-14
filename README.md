@@ -1,12 +1,23 @@
-# Adafi News App (LAMP Stack on AWS ECS) new
 
-A containerized PHP-based news application deployed on AWS using ECS Fargate and an Application Load Balancer (ALB). The app is connected to an Amazon RDS MySQL database and follows DevOps best practices including Docker, ECR, secure secrets management, and infrastructure deployment via AWS CLI.
+# Adafi News App (LAMP Stack on AWS ECS) – with Disaster Recovery 🌍
+
+A containerized PHP-based news application deployed on AWS using ECS Fargate and an Application Load Balancer (ALB). The app is connected to an Amazon RDS MySQL database and follows DevOps best practices including Docker, ECR, secure secrets management, and infrastructure deployment via AWS CLI. A full disaster recovery environment is configured in a separate AWS region with Route 53 DNS failover.
 
 ---
 
-## 🌐 Live URL
+## Architectural Diagram
 
-**[http://adafi-alb-1546447544.eu-west-1.elb.amazonaws.com](http://adafi-alb-1546447544.eu-west-1.elb.amazonaws.com)**
+![Achitectural Diagram](./screenshot/adafi_architecture_drawio.txt.jpg)
+
+## 🌐 Live URLs
+
+**Primary:**  
+[http://adafi-alb-1546447544.eu-west-1.elb.amazonaws.com](http://adafi-alb-1546447544.eu-west-1.elb.amazonaws.com)
+
+
+
+**Disaster Recovery:**  
+[http://app.adafi-dr.lab](http://app.adafi-dr.lab)
 
 ---
 
@@ -15,11 +26,11 @@ A containerized PHP-based news application deployed on AWS using ECS Fargate and
 * **Frontend/Backend:** PHP + HTML (LAMP-style)
 * **Database:** Amazon RDS MySQL
 * **Infrastructure:**
-
   * Amazon ECS (Fargate)
   * Amazon ECR (Docker image)
   * ALB (Application Load Balancer)
-  * Custom VPC with Public & Private Subnets
+  * Custom VPC with Public Subnets
+  * Route 53 DNS Failover
 * **Tools:** Docker, Composer, AWS CLI
 
 ---
@@ -30,6 +41,7 @@ A containerized PHP-based news application deployed on AWS using ECS Fargate and
 * Image upload handling
 * `.env` configuration with `phpdotenv`
 * Runs locally with Docker or deploys to AWS via ECS
+* Disaster recovery environment in `eu-central-1`
 
 ---
 
@@ -63,7 +75,7 @@ App will be available at: `http://localhost:8080`
 ### 1. Create VPC & Subnets (once per environment)
 
 ```bash
-# Already created: general-lab-vpc with tagged public/private subnets
+# Already created: general-lab-vpc with tagged public subnets in eu-west-1 and eu-central-1
 ```
 
 ### 2. Build & Push Docker Image to ECR
@@ -132,16 +144,6 @@ adafi-news-app/
 ## 🔐 Secrets Handling
 
 Environment variables are passed securely via Docker `-e` flags or `.env` files. In production, use AWS Secrets Manager or Systems Manager Parameter Store.
-
----
-
-## 📸 Screenshots to Capture for Submission
-
-* ECS Cluster: `describe-services`
-* ALB DNS test in browser
-* Target group health
-* `docker push` to ECR
-* CLI task definition and service commands
 
 ---
 
